@@ -32,25 +32,6 @@ Security logs and endpoint telemetry are centrally collected into Splunk using U
 --
 
 ## Architecture Design
-                         🟪 SPLUNK ENTERPRISE (SIEM)
-                 ┌─────────────────────────────────────┐
-                 │  📊 Log ingestion & analysis         │
-                 │  🔍 Security investigations          │
-                 │  🚨 Alerting (future capability)      │
-                 └───────────────┬─────────────────────┘
-                                 │
-                 🟦 Universal Forwarders (log pipeline)
-                                 │
-        ┌────────────────────────┴────────────────────────┐
-        │                                                 │
-🟩 WINDOWS SERVER 2022                         🟨 WINDOWS 11 ENTERPRISE
-(DOMAIN CONTROLLER)                            (DOMAIN JOINED ENDPOINT)
-        │                                                 │
-        │                                                 │
-🧠 Active Directory                         👤 User Activity Simulation
-🌐 DNS / DHCP                              💻 Application usage
-🔐 Authentication logs                     ⚙️ Process execution (Sysmon)
-👥 User & Group management                🌐 Network connections
-        │                                                 │
-        └───────────────🟥 SYS MON TELEMETRY─────────────┘
+<img width="2534" height="1316" alt="image" src="https://github.com/user-attachments/assets/4bd54de6-2148-4afc-8733-59e606889905" />
+
 
