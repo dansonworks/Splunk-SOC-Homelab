@@ -24,7 +24,8 @@ The lab consists of:
 - **Sysmon** - Endpoint telementry and logging
 - **Splunk Universal Forwarders** - Log forwarding from endpoints
 
-### Environment Design
+### <img width="960" height="762" alt="image" src="https://github.com/user-attachments/assets/362e92e4-3b9f-4eee-aaef-8cd7331497aa" />
+Environment Design
 The Windows 11 enterprise endpoint is joined to an Active Directory domain hosted windows Server 2022 to simulate a realistic enterprise environment.
 
 Security logs and endpoint telemetry are centrally collected into Splunk using Universal Forwarders enabling monitoring investigations and authentication activity, endpoint behaviour, and suspicious events.
