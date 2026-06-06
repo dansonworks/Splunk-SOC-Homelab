@@ -11,4 +11,12 @@ The Objective of this lab is to gain hands-on experience with:
 * SOC alert triage and incident investigation workflows
 
 This environment was built to simulate a small enterprise network and provide practical exposure to the type of telementry and investigations performed by a Tier 1 SOC Analyst.
----
+--
+
+## Lab Architecture
+
+The lab consists of:
+
+### Infrastructure
+- **Windows Server 2022** - Domain Controller
+- 
