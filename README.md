@@ -19,4 +19,16 @@ The lab consists of:
 
 ### Infrastructure
 - **Windows Server 2022** - Domain Controller
-- 
+- **Windows 11 Enterprise** - Domain-joined endpoint
+- **Splunk Enterprise** - Central SIEM platform
+- **Sysmon** - Endpoint telementry and logging
+- **Splunk Universal Forwarders** - Log forwarding from endpoints
+
+### Environment Design
+The Windows 11 enterprise endpoint is joined to an Active Directory domain hosted windows Server 2022 to simulate a realistic enterprise environment.
+
+Security logs and endpoint telemetry are centrally collected into Splunk using Universal Forwarders enabling monitoring investigations and authentication activity, endpoint behaviour, and suspicious events.
+
+--
+
+
