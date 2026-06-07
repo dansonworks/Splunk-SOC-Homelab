@@ -73,6 +73,8 @@ Timeline View
 This screenshot shows a Splunk timechart visualisation I created to analyse authentication activity on the target Windows host by plotting both successful logins (EventCode 4624) and failed logins (EventCode 4625) over time. I filtered the data to the specific machine involved in the brute‑force attack and used a one‑minute time span to clearly show spikes in login behaviour. The chart displays over a thousand events across the selected timeframe, with noticeable peaks that correspond to periods of repeated failed login attempts followed by successful authentication. This visualisation helped me understand the attack pattern more clearly, showing when the brute‑force attempts intensified and when the attacker finally gained access. By comparing both event types on the same graph, I could easily correlate the failed attempts with the eventual successful login, demonstrating how Splunk can be used to visually track and confirm the progression of an account compromise.
 
 
+Note: In this lab environment, the domain user account was intentionally named WIN-T6O06KOGOUU to match the host machine for simplicity during setup. In production environments, user and host naming conventions are typically distinct.
+
 
 
 
