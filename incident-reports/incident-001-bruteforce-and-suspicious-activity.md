@@ -4,7 +4,7 @@ Incident 001: Brute Force Login Attempt on Domain Account
 
 --
 
-## 1. Summary
+## 📌 1. Summary
 
 A series of failed login attempts were observed against a domain user account within the Windows Server 2022 Acrive Sirectory environment. The Activity was detected though Splunk, which triggered and alert based on multiple authentication failures within a short time period.
 
