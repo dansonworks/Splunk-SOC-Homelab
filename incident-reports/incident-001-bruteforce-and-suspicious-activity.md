@@ -13,7 +13,7 @@ The investigation confirmed repeated failed login attemps from the same source f
 --
 
 ## ⏱️ 2. Timeline of Events
-- 1:45:17.PM - Multiple failed login attemps detected for domain user: "Administrator"
+- 13:45:17.PM - Multiple failed login attemps detected for domain user: "Administrator"
 - 13:45:19 PM - Authentication failure continue from same source machine
 - 13:47:00 PM - Splunk alert triggered due to threadhold of failed logins
 - 13:48:00 PM - Investigation initiated in Splunk
