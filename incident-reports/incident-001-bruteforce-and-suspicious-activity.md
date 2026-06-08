@@ -26,7 +26,7 @@ The investigation confirmed repeated failed login attemps from the same source f
 The following steps were taken to investigate the alert:
 
 - Queried Splunk for Windows Event ID `4625` (failed login attempts)
-- Filtered logs by username: `testuser`
+- Filtered logs by username: `WIN-T6O06KOGOUU`
 - Identified repeated authentication failures from a single source IP / host
 - Queried Event ID `4624` (successful login events)
 - Confirmed successful login occurred shortly after repeated failures
