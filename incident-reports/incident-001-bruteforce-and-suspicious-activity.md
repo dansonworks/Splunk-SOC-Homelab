@@ -46,38 +46,44 @@ The following evidence was collected during the investigation:
 
 ### Screenshots:
 <img width="1292" height="944" alt="image" src="https://github.com/user-attachments/assets/ddf8c8ae-3adb-4afb-8d3f-ba6eb097e561" />
-Summary of the Brute‑Force Detection Alert
+Figure 1: Splunk alert configuration and triggered detection for failed login attempts (EventCode 4625).
 
-This alert is designed to detect potential brute‑force login attempts on a Windows system by monitoring repeated failed authentication events. It focuses specifically on EventCode 4625, which is generated whenever a user enters an incorrect password.
-
-The alert works by analysing authentication logs over a defined time window and identifying any account that has more than three failed login attempts. If this threshold is exceeded, the alert triggers and notifies the security team so they can investigate possible malicious activity or user error.
+Splunk alert configured to detect repeated failed authentication attempts using Windows EventCode 4625. The detection rule evaluates authentication logs within a defined time window and triggers when the number of failed login attempts exceeds the configured threshold.
 
 <img width="1860" height="318" alt="image" src="https://github.com/user-attachments/assets/957b94f2-ecbf-4a81-8c79-367c3a068b55" />
-Failed Login
+Figure 2: Windows Security Event Log entry for EventCode 4625 (failed authentication attempt).
 
-This screenshot shows a Windows Security Log entry for EventCode 4625, which records a failed login attempt. The event includes details such as the system name, the account involved, the timestamp, and the source network address (in this case, 127.0.0.1, meaning the attempt originated locally). EventCode 4625 is generated whenever a user enters an incorrect password or when authentication fails for another reason, making it a key indicator of suspicious activity. These failed login events are essential for detecting brute‑force attempts or repeated unauthorized access, and they form the core data source for my Splunk brute‑force detection alert, which monitors repeated failures and triggers when a user exceeds a defined threshold.
+Windows Security Event Log showing EventCode 4625, indicating a failed login attempt on the system. The event includes details such as the account name, timestamp, host information, and source network address.
+
 
 <img width="1922" height="318" alt="image" src="https://github.com/user-attachments/assets/1413f618-c029-4966-9d91-b17f42bce563" />
-Successful Login
+Figure 3: Windows Security Event Log entry for EventCode 4624 (successful authentication event).
 
-This log entry shows a Windows Security Event 4624, which indicates a successful login. In the context of my brute‑force detection scenario, this event appears immediately after multiple failed login attempts (EventCode 4625). The attacker repeatedly tried incorrect passwords, triggering my Splunk brute‑force alert, and eventually managed to authenticate successfully. The log records details such as the system name, timestamp, and the source network address (127.0.0.1), confirming that the login attempt originated locally. This successful authentication event demonstrates the moment the brute‑force attack succeeded, highlighting why continuous monitoring of both failed and successful logins is critical for detecting compromised accounts in a SOC environment.
+Windows Security Event Log showing EventCode 4624, indicating a successful login to the system. The event contains details including the account name, timestamp, system name, and source network address.
 
 <img width="2428" height="1006" alt="image" src="https://github.com/user-attachments/assets/e8e33696-8a96-4369-b2bc-7225d2ae0c13" />
-Splunk Search Query itself
+Figure 4: Splunk search results showing filtered EventCode 4625 failed authentication events.
 
-This screenshot shows the Splunk search I performed to filter and analyse all failed login attempts (EventCode 4625) on the target Windows machine. I refined the search by specifying the host name and adjusting the time range to focus only on the period during which the brute‑force activity occurred. The query returned 26 failed login events, confirming repeated incorrect password attempts against the same system. By narrowing the search to a specific host and timeframe, I was able to clearly isolate the brute‑force pattern and validate that the attacker was repeatedly attempting to authenticate. This filtered view helped me correlate the failed attempts with the later successful login event, demonstrating how Splunk can be used to trace the full sequence of an attack from initial failures to eventual compromise.
+Splunk search query filtering EventCode 4625 events on the target Windows host within a defined time range. The results display multiple failed login attempts associated with the same system and user account.
+
+The query was refined using host filtering and time range selection to isolate authentication failures during the investigation window.
 
 <img width="1930" height="932" alt="image" src="https://github.com/user-attachments/assets/c0a020b5-e839-42f8-8be4-35319815a6fa" />
-Timeline View
+Figure 5: Splunk timechart showing EventCode 4624 (successful logins) and EventCode 4625 (failed logins) over time.
 
-This screenshot shows a Splunk timechart visualisation I created to analyse authentication activity on the target Windows host by plotting both successful logins (EventCode 4624) and failed logins (EventCode 4625) over time. I filtered the data to the specific machine involved in the brute‑force attack and used a one‑minute time span to clearly show spikes in login behaviour. The chart displays over a thousand events across the selected timeframe, with noticeable peaks that correspond to periods of repeated failed login attempts followed by successful authentication. This visualisation helped me understand the attack pattern more clearly, showing when the brute‑force attempts intensified and when the attacker finally gained access. By comparing both event types on the same graph, I could easily correlate the failed attempts with the eventual successful login, demonstrating how Splunk can be used to visually track and confirm the progression of an account compromise.
+Splunk timechart visualisation showing authentication activity on the target Windows host. The chart plots both successful logins (EventCode 4624) and failed login attempts (EventCode 4625) over a selected time range.
+
+Data was filtered to the specific host involved in the investigation, with a one-minute interval applied to display event distribution over time.
+
+The visualisation displays variations in authentication events across the selected period.
+
 
 ###Extra###
 
 <img width="1742" height="710" alt="Screenshot 2026-06-07 135621" src="https://github.com/user-attachments/assets/3adab1af-08e0-415c-b49a-3f1bf094e1a0" />
-Failed Logon Event (EventCode 4625 – Interactive Logon)
+Figure 9: Windows Security Event Log showing failed interactive logon attempt (EventCode 4625).
 
-This screenshot shows a Windows Security Event 4625 for a failed interactive logon to the Administrator account. The log confirms the failure was caused by an incorrect password and shows that the attempt came from the local machine (127.0.0.1) during the brute‑force activity. It also identifies the process involved (svchost.exe) and the logon type (2), which indicates a direct login attempt. This event is one of the repeated failures that occurred before the attacker eventually succeeded in logging in.
+Windows Security Event 4625 showing a failed interactive logon attempt for the Administrator account. The event indicates the failure was due to an incorrect password and includes details such as logon type, process name (svchost.exe), and source address (127.0.0.1).
 
 
 Note: In this lab environment, the domain user account was intentionally named WIN-T6O06KOGOUU to match the host machine for simplicity during setup. In production environments, user and host naming conventions are typically distinct.
