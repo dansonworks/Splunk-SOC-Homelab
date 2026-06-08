@@ -31,5 +31,21 @@ The following steps were taken to investigate the alert:
 - Checked whether PowerShell activity was expected or potentially suspicious.
 - Reviewed nearby authentication logs to determine whether account compromise indicators were present.
 
+---
+
+## 🖥️ 4. Evidence Collected
+
+The following evidence was collected during the investigation:
+
+Splunk Alert Output
+
+The alert indicated unusual PowerShell execution on the client machine under a domain user session.
+
+- Log Sources Reviewed
+- Windows Security Event Logs
+- PowerShell Operational Logs (if enabled)
+- Process Execution Logs (Sysmon if configured)
+- Splunk Alert Event Data
+
 
 
