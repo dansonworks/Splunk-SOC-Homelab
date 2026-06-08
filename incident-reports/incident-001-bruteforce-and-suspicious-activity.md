@@ -81,7 +81,7 @@ The visualisation displays variations in authentication events across the select
 ###Extra###
 
 <img width="1742" height="710" alt="Screenshot 2026-06-07 135621" src="https://github.com/user-attachments/assets/3adab1af-08e0-415c-b49a-3f1bf094e1a0" />
-Figure 9: Windows Security Event Log showing failed interactive logon attempt (EventCode 4625).
+Figure 6: Windows Security Event Log showing failed interactive logon attempt (EventCode 4625).
 
 Windows Security Event 4625 showing a failed interactive logon attempt for the Administrator account. The event indicates the failure was due to an incorrect password and includes details such as logon type, process name (svchost.exe), and source address (127.0.0.1).
 
