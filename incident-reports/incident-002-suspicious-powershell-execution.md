@@ -58,6 +58,27 @@ PowerShell Execution – Sysmon Event Details
 
 This screenshot shows the detailed results of my PowerShell activity alert after opening it in Splunk. The search filters Sysmon EventCode 1, specifically looking for process creation events where the image contains powershell.exe. The results confirm multiple PowerShell executions on the monitored host, each showing the full command line used. This view allowed me to validate that the alert correctly detected real PowerShell activity and provided the exact commands executed, which is essential for analysing potential malicious behaviour.
 
+---
+
+## Analysis
+
+PowerShell is a legitimate administrative tool in Windows environments; however, it is frequently used by attackers for malicious purposes such as reconnaissance, persistence, and execution of encoded commands.
+
+The Splunk alert was triggered due to detection of PowerShell execution outside of normal baseline activity.
+
+Upon investigation, the activity was confirmed to originate from a valid domain user session in a controlled lab environment. The commands executed were part of a simulated test scenario and did not indicate real compromise.
+
+No evidence of privilege escalation, lateral movement, or external communication was observed.
+
+## Conclusion
+
+The alert for suspicious PowerShell activity was successfully investigated and determined to be part of a simulated scenario in a controlled SOC home lab environment.
+
+## Key findings:
+
+- Splunk alert correctly detected PowerShell execution
+- Activity was linked to a valid user session
+- No indicators of compromise beyond simulated behaviour
 
 
 
