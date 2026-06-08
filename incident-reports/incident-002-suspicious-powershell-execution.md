@@ -14,9 +14,9 @@ The investigation focused on determining what commands were run, which user exec
 
 ## ⏱️ 2. Timeline of Events
 - 13:48:14 PM — User logged into domain client machine successfully.
-- 13::PM — PowerShell process execution detected on endpoint.
-- 10:06: PM — Splunk alert triggered for suspicious PowerShell activity.
-- 10:07: PM — Analyst initiated investigation via Splunk search.
-- 10:12: PM — Investigation completed and results documented.
+- 13:50:00 PM — PowerShell process execution detected on endpoint.
+- 13:50:00 PM — Splunk alert triggered for suspicious PowerShell activity.
+- 14:00:00 PM — Analyst initiated investigation via Splunk search.
+- 14:25:00 PM — Investigation completed and results documented.
 
 
