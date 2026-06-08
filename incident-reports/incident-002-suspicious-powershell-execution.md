@@ -19,4 +19,17 @@ The investigation focused on determining what commands were run, which user exec
 - 14:00:00 PM — Analyst initiated investigation via Splunk search.
 - 14:25:00 PM — Investigation completed and results documented.
 
+---
+
+## 🔍 3. Investigation Steps
+The investigation began after the Splunk alert flagged PowerShell execution activity on the endpoint.
+The following steps were taken to investigate the alert:
+
+- Searched for PowerShell-related events in Splunk.
+- Reviewed process execution logs to identify the parent process and execution context.
+- Confirmed which user account executed the commands.
+- Checked whether PowerShell activity was expected or potentially suspicious.
+- Reviewed nearby authentication logs to determine whether account compromise indicators were present.
+
+
 
